@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "factorio-planner"
+version = "0.1.0"
+description = "Production chain calculator for the game Factorio"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "factorio-planner contributors" }]
+keywords = ["factorio", "calculator", "production", "gaming", "automation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Games/Entertainment",
+]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+graph = ["networkx>=3.0", "matplotlib>=3.5"]
+dev   = ["pytest>=7", "pytest-cov", "build", "twine"]
+
+[project.scripts]
+factorio-planner = "factorio_planner.cli:main"
+
+[project.urls]
+Homepage    = "https://github.com/BernardRivera13/factorio-planner"
+Repository  = "https://github.com/BernardRivera13/factorio-planner"
+"Bug Tracker" = "https://github.com/BernardRivera13/factorio-planner/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["factorio_planner*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
